@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+        *{
+            font-family: "Poppins", sans-serif;
+            margin: 0;
+        }
+        body{
+            background: #2b5876;  /* fallback for old browsers */
+            background: -webkit-linear-gradient(to left, #4e4376, #2b5876);  /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient(to left, #4e4376, #2b5876); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Para que ocupe toda la altura del viewport */
+            margin: 0;
+        }
+        .completed {
+            text-decoration: line-through;
+            color: #a5a5a5;
+        }
+        .completed2 {
+        color: #a5a5a5; /* Aplica el color gris solo a la hora */
+    }
+        .contenedor{
+          background-color: #fff;  
+          width: 500px;
+          height: 500px;
+          border-radius: 15px;
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-start;
+          align-items: center;
+        }
+        h2{
+            color: #2C3D74;
+            margin-bottom: 10px;
+        }
+        
+        input[type="text"]{
+            background-color: #EDEEF0;
+            border-style: none;
+            height: 35px;
+            width: 220px;
+            border-radius: 30px;
+            outline: none;
+            text-indent: 10px; 
+        } 
+        .content{
+            margin-top: 20px;
+        }
+       .content input[type="button"]{
+            background-color: #FF5845;
+            border-style: none;
+            border-radius: 30px;
+            color: #fff;
+            padding: 10px;
+            cursor: pointer;
+            transform: translateX(-35%); /* Ajusta la posición verticalmente */
+
+        }
+            ul {
+                width: 400px;
+                max-height: 320px;
+                overflow: auto;
+                margin-left: -40px;
+                }
+
+        /* Estilos para WebKit (Chrome, Safari, etc.) */
+        ul::-webkit-scrollbar {
+            width: 10px; /* Ancho del scrollbar */
+        }
+
+        ul::-webkit-scrollbar-thumb {
+            background-color: #888; /* Color del scrollbar */
+            border-radius: 5px; /* Borde redondeado del thumb */
+        }
+
+        /* Estilos para navegadores basados en el motor de renderizado de Microsoft (Edge) */
+        ul {
+            scrollbar-width: thin; /* Ancho del scrollbar */
+        }
+
+        ul::-webkit-scrollbar-thumb {
+            background-color: #888; /* Color del scrollbar */
+            border-radius: 5px; /* Borde redondeado del thumb */
+        }
+
+
+
+        
+        li{
+            display: flex;
+            justify-content:space-between;
+            align-items: center;
+            border-left: 2px solid #2C3D74;
+            height: 60px;
+            margin-bottom: 2px;
+            padding-left: 10px;
+        }
+
+        input[type="checkbox"]{
+        appearance: none;
+        -webkit-appearance: none;
+        height: 20px;
+        width: 20px;
+        background-color:  #d5d5d5;
+        border-radius: 50%;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        outline: none;
+        margin-right: 15px;
+        }
+
+    input[type="checkbox"]::after{
+        font-family: "Font Awesome 5 Free";
+        font-weight: 900;
+        content: "\f00c";
+        font-size: 15px;
+        color: white;
+    }
+    input[type="checkbox"]:hover{
+        background-color: #a5a5a5;
+    }
+    input[type="checkbox"]:checked{
+        background-color: #FF5845;
+    }
+
+    input[type="checkbox"]:checked::after{
+        display: block;
+    }
+
+    .eliminar-icono {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    }
+
+    .eliminar-icono i {
+        color: #a5a5a5; /* Color del icono */
+        font-size: 20px; /* Tamaño del icono */
+    }
+
+    .eliminar-icono i:hover{
+        color: #2C3D74;
+    }
+
+    .texto-tarea{
+        max-width: 280px;
+        overflow: auto;
+    }
+    .texto-tarea{
+        display: flex;
+        flex-direction: column;
+    }
+
+            /* Estilos para WebKit (Chrome, Safari, etc.) */
+        .texto-tarea::-webkit-scrollbar {
+            width: 10px; /* Ancho del scrollbar */
+        }
+
+        .texto-tarea::-webkit-scrollbar-thumb {
+            background-color: #888; /* Color del scrollbar */
+            border-radius: 5px; /* Borde redondeado del thumb */
+        }
+
+        /* Estilos para navegadores basados en el motor de renderizado de Microsoft (Edge) */
+        .texto-tarea {
+            scrollbar-width: thin; /* Ancho del scrollbar */
+        }
+
+        .texto-tarea::-webkit-scrollbar-thumb {
+            background-color: #888; /* Color del scrollbar */
+            border-radius: 5px; /* Borde redondeado del thumb */
+        }
+
+        .contentlist{
+            margin-top: 20px;
+        }
+
+        .actions{
+            display: flex;
+            margin-right: 5px;
+        }
+        p{
+            font-size: 15px;
+        }
+        @media (max-width: 540px){
+            body{
+                background: #fff;
+            }
+            .contenedor{
+                width: 100vw;
+                height: 100vh;
+                border-radius: 0;
+            }
+            .contentlist{
+                margin-left: 0;
+                margin-right: 0;
+            }
+            ul{
+                max-height: 100vh;
+            }
+        }
+
+        @media (max-width: 372px){
+            ul{
+                width: 350px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="contenedor">
+        <div class="content">
+            <h2>Agenda <i class="fa-solid fa-clipboard-list"></i></h2> 
+            <input type="text" id="texto-tarea">
+            <input type="button" value="Agregar" onclick="agregarTarea(event)">
+        </div>
+        <div class="contentlist">
+            <ul id="mostrar"></ul>
+        </div>
+        
+    </div>
+</body>
+<script>
+    var arreglo = JSON.parse(localStorage.getItem('arreglo')) || [];
+
+    function agregarTarea(event) {
+        event.preventDefault();
+        var texto_tarea = document.getElementById("texto-tarea").value;
+        var fecha = new Date();
+        var fechaCorta = fecha.toLocaleDateString('es-ES', {
+            year: 'numeric',
+            month: 'short',
+            day: 'numeric',
+            hour: 'numeric',
+            minute: 'numeric',
+            hour12: false,
+        });
+        if(texto_tarea != ""){
+            mostrar.innerHTML += '<li> <div class="texto-tarea">'  + texto_tarea +  '<p>' + fechaCorta  + '</p> </div> <div class="actions"> <input type="checkbox" onclick="marcarCompleta(' + (arreglo.length) + ')">   <button onclick="eliminarTarea(' + arreglo.length + ')" class="eliminar-icono"><i class="fas fa-times"></i></button> </div> </li>';
+            arreglo.push({ tarea: texto_tarea, completada: false, fecha: fechaCorta });
+            localStorage.setItem('arreglo', JSON.stringify(arreglo));
+            document.getElementById("texto-tarea").value = "";
+        }
+    }
+
+    function eliminarTarea(index){
+        arreglo.splice(index, 1);
+        localStorage.setItem('arreglo', JSON.stringify(arreglo));
+        mostrarTareas();
+    }
+
+    function marcarCompleta(index) {
+        arreglo[index].completada = !arreglo[index].completada;
+        localStorage.setItem('arreglo', JSON.stringify(arreglo));
+        mostrarTareas();
+    }
+
+    function mostrarTareas() {
+        var mostrar = document.getElementById("mostrar");
+        mostrar.innerHTML = arreglo.map(function(item, index){
+            var tarea = item.tarea;
+            var fechaCorta = item.fecha;
+            if (item.completada) {
+                tarea = "<span class='completed'> " + tarea + "</span>";
+                fechaCorta = "<span class='completed2'>" + fechaCorta + "</span>";
+
+            }
+            return '<li> <div class="texto-tarea"> ' + tarea  + '<p>' + fechaCorta + '</p>' + '</div> <div class="actions"> <input type="checkbox" onclick="marcarCompleta(' + index + ')" ' + (item.completada ? 'checked' : '') + '> <button class="eliminar-icono" onclick="eliminarTarea(' + index + ')"> <i class="fas fa-times"></i></button> </div></li> ';
+        }).join('');
+    }
+
+    window.onload = function(){
+        mostrarTareas();
+    }
+</script>
+</body>
+</html>
